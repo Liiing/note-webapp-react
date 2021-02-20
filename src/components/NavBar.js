@@ -1,4 +1,8 @@
-function NavBar({onNoteAdd}) {
+import { useDispatch } from "react-redux";
+
+function NavBar() {
+  const dispatch = useDispatch();
+  
   return (
     <nav className="navbar" role="navigation" aria-label="main navigation">
       <div className="container">
@@ -9,7 +13,7 @@ function NavBar({onNoteAdd}) {
         </div>
         <div id="navbarBasicExample" className="navbar-menu">
           <div className="navbar-end">
-            <a className="button is-primary" onClick={() => {}}>
+            <a className="button is-primary" onClick={() => dispatch({type: 'ADD_NOTE'})}>
               <strong>+</strong>
             </a>
           </div>
