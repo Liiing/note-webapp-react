@@ -5,8 +5,8 @@ function Note(props) {
   const [isContentEditable, setisContentEditable] = useState(false);
 
   return (
-    <article class="message is-warning">
-    <div class="message-header">
+    <article className="message is-warning">
+    <div className="message-header">
         <p onClick={() => setisTitleEditable(true)}>
           { isTitleEditable ? (
             <input
@@ -18,9 +18,9 @@ function Note(props) {
             props.title
           )}
         </p>
-        <button class="delete" aria-label="delete"></button>
+        <button className="delete" aria-label="delete"></button>
     </div>
-    <div onClick={() => setisContentEditable(true)} class="message-body">
+    <div onClick={() => setisContentEditable(true)} className="message-body">
       { isContentEditable ? (
         <textarea
           value={props.content}
