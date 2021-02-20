@@ -1,4 +1,4 @@
-import Note from 'Note'
+import Note from './Note'
 
 function NoteList(props) {
     const renderedNoteList = props.noteList.map(note => (
