@@ -1,15 +1,15 @@
+import { useSelector } from 'react-redux';
 import Note from './Note'
 
-function NoteList({noteList, onNoteAttributeChange, onDeleteNote}) {
+function NoteList() {
+
+const noteList = useSelector(state => state.noteList);
     const renderedNoteList = noteList.map(note => (
        <Note
-        title={note.title}
-        content={note.content}
         key={note.uuid}
-        uuid={note.uuid}
-        onNoteAttributeChange={onNoteAttributeChange}
-        onDeleteNote={onDeleteNote}/>
+        uuid={note.uuid}/>
     ))
+
     return (
         <div className="container">
             { renderedNoteList }

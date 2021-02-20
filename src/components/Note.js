@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 
-function Note({uuid, title, content, onNoteAttributeChange, onDeleteNote}) {
+function Note({uuid}) {
+  const note = useSelector(state => state.noteList.find(note => note.uuid === uuid));
   const [isTitleEditable, setisTitleEditable] = useState(false);
   const [isContentEditable, setisContentEditable] = useState(false);
 
@@ -11,25 +13,25 @@ function Note({uuid, title, content, onNoteAttributeChange, onDeleteNote}) {
           { isTitleEditable ? (
             <input
               type="text"
-              value={title}
+              value={note.title}
               ref={input => input && input.focus()}
-              onChange={e => onNoteAttributeChange('title', uuid, e)}
+              onChange={e => {}}
               onBlur={() => setisTitleEditable(false)}/>
           ) : (
-            title
+            note.title
           )}
         </p>
-        <button className="delete" aria-label="delete" onClick={e => onDeleteNote(uuid)}></button>
+        <button className="delete" aria-label="delete" onClick={e => {}}></button>
     </div>
     <div onClick={() => setisContentEditable(true)} className="message-body">
       { isContentEditable ? (
         <textarea
-          value={content}
+          value={note.content}
           ref={input => input && input.focus()}
-          onChange={e => onNoteAttributeChange('content', uuid, e)}
+          onChange={e => {}}
           onBlur={() => setisContentEditable(false)}/>
         ) : (
-            content
+            note.content
         )}
     </div>
 </article>

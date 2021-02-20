@@ -9,7 +9,7 @@ function NavBar({onNoteAdd}) {
         </div>
         <div id="navbarBasicExample" className="navbar-menu">
           <div className="navbar-end">
-            <a className="button is-primary" onClick={onNoteAdd}>
+            <a className="button is-primary" onClick={() => {}}>
               <strong>+</strong>
             </a>
           </div>
