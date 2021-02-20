@@ -1,14 +1,8 @@
+import Note from 'Note'
+
 function NoteList(props) {
     const renderedNoteList = props.noteList.map(note => (
-        <article class="message is-warning">
-            <div class="message-header">
-                <p>{ note.title }</p>
-                <button class="delete" aria-label="delete"></button>
-            </div>
-            <div class="message-body">
-               { note.content }
-            </div>
-        </article>
+       <Note title={note.title} content={note.content}/>
     ))
 
     return (
