@@ -1,4 +1,4 @@
-function NavBar() {
+function NavBar({onNoteAdd}) {
   return (
     <nav className="navbar" role="navigation" aria-label="main navigation">
       <div className="container">
@@ -9,7 +9,7 @@ function NavBar() {
         </div>
         <div id="navbarBasicExample" className="navbar-menu">
           <div className="navbar-end">
-            <a className="button is-primary">
+            <a className="button is-primary" onClick={onNoteAdd}>
               <strong>+</strong>
             </a>
           </div>
