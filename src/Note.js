@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function Note({uuid, title, content, onNoteAttributeChange}) {
+function Note({uuid, title, content, onNoteAttributeChange, onDeleteNote}) {
   const [isTitleEditable, setisTitleEditable] = useState(false);
   const [isContentEditable, setisContentEditable] = useState(false);
 
@@ -19,7 +19,7 @@ function Note({uuid, title, content, onNoteAttributeChange}) {
             title
           )}
         </p>
-        <button className="delete" aria-label="delete"></button>
+        <button className="delete" aria-label="delete" onClick={e => onDeleteNote(uuid)}></button>
     </div>
     <div onClick={() => setisContentEditable(true)} className="message-body">
       { isContentEditable ? (

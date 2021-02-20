@@ -26,12 +26,25 @@ function App() {
     return noteList.find(note => note.uuid === uuid);
   }
 
+  function getNoteIndexByUuid(uuid) {
+    return noteList.findIndex(note => note.uuid === uuid);
+  }
+
+  function onDeleteNote(uuid) {
+    const copiedNoteList = [...noteList];
+    const deleteNoteIndex = getNoteIndexByUuid(uuid);
+
+    copiedNoteList.splice(deleteNoteIndex, 1);
+    setNoteList(copiedNoteList);
+  }
+
   return (
     <>
       <NavBar/>
       <NoteList
         noteList={noteList}
-        onNoteAttributeChange={onNoteAttributeChange}/>
+        onNoteAttributeChange={onNoteAttributeChange}
+        onDeleteNote={onDeleteNote}/>
     </>
   );
 }
