@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function Note(props) {
+function Note({uuid, title, content, onNoteAttributeChange}) {
   const [isTitleEditable, setisTitleEditable] = useState(false);
   const [isContentEditable, setisContentEditable] = useState(false);
 
@@ -11,11 +11,12 @@ function Note(props) {
           { isTitleEditable ? (
             <input
               type="text"
-              value={props.title}
+              value={title}
               ref={input => input && input.focus()}
+              onChange={e => onNoteAttributeChange('title', uuid, e)}
               onBlur={() => setisTitleEditable(false)}/>
           ) : (
-            props.title
+            title
           )}
         </p>
         <button className="delete" aria-label="delete"></button>
@@ -23,11 +24,12 @@ function Note(props) {
     <div onClick={() => setisContentEditable(true)} className="message-body">
       { isContentEditable ? (
         <textarea
-          value={props.content}
+          value={content}
           ref={input => input && input.focus()}
+          onChange={e => onNoteAttributeChange('content', uuid, e)}
           onBlur={() => setisContentEditable(false)}/>
         ) : (
-            props.content
+            content
         )}
     </div>
 </article>
